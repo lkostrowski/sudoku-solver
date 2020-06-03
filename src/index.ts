@@ -116,7 +116,7 @@ class PossibilitiesChecker {
 		return possibilities;
 	}
 
-	uniqueInSquareStrategy(): PossibilitiesDict {
+	private getAvailableValuesInSquare(): PossibilitiesDict {
 		let possibilities = this.createPossibilitiesDict();
 
 		return possibilities;
@@ -149,6 +149,26 @@ class PossibilitiesChecker {
 	}
 }
 
-const board = new Board([3, 2, 1, null, 1, 3, null, 3, null]);
+// prettier-ignore
+const tiles = [
+	null, null, 3, null, 6, 1, null, 2, 4,
+	null, null, null, null, null, null, 3, null, 6,
+	null, null, null, 4, 0, 8, 1, null, 9,
+	null, null, null, null, null, null, null, null, 3,
+	null, 5, null, 3, 8, 4, null, 9, null,
+	1, null, null, null, null, null, null, null, null,
+	2, null, 5, 8, null, 6, null, null, null,
+	8, null, 9, null, null, null, null, null, null,
+	3, 4, null, 9, 1, null, 6, null, null
+];
+
+const board = new Board(tiles);
 
 const possibilitiesChecker = new PossibilitiesChecker(board);
+
+board.printBoard();
+
+console.log(possibilitiesChecker.checkPossibilities(1, 1));
+console.log(possibilitiesChecker.checkPossibilities(1, 2));
+console.log(possibilitiesChecker.checkPossibilities(2, 1));
+console.log(possibilitiesChecker.checkPossibilities(2, 2));
